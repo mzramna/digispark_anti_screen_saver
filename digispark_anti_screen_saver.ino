@@ -10,10 +10,10 @@
 // MOUSE_DELAY_L : Interval (milliseconds) to move the mouse (min)
 // MOUSE_DELAY_H : Interval (milliseconds) to move the mouse (max)
 
-#define MOUSE_MOVE_L 1000
-#define MOUSE_MOVE_H 5000
-#define MOUSE_DELAY_L 2000
-#define MOUSE_DELAY_H 5000
+#define MOUSE_MOVE_L 100
+#define MOUSE_MOVE_H 300
+#define MOUSE_DELAY_L 100
+#define MOUSE_DELAY_H 500
 
 // You really should not change anything below
 
@@ -54,6 +54,12 @@ void ledToggle() {
 }
 
 void loop() {
+  mouseRandom();
+}
+
+
+
+void mouseRandom(){
   DigiMouse.update(); // DigiMouse.update() at least every 50ms
   if (millis() > mouse_time_movement) {
     switch (mouse_current) {
@@ -78,4 +84,5 @@ void loop() {
     mouse_move_amount = random(MOUSE_MOVE_L, MOUSE_MOVE_H);
   }
   delay(25);
+
 }
